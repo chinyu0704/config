@@ -1,3 +1,14 @@
+" colors on
+syntax on
+
+set noexpandtab
+set smarttab
+set tabstop=8
+set softtabstop=8
+
+"indent size
+set shiftwidth=8
+
 " 80 characters line
 set colorcolumn=81
 "execute "set colorcolumn=" . join(range(81,335), ',')
@@ -13,6 +24,13 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-syntax on
 set background=dark
 colorscheme hybrid
+
+set t_Co=256
+
+"abbreviations
+abbreviate qy qinyu
+abbreviate #i #include
+abbreviate #d #define
+abbreviate SOB Signed-off-by:

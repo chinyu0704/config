@@ -7,3 +7,5 @@
 	br = co
 	co = checkout
 	ci = commit
+[core]
+	editor = vim
