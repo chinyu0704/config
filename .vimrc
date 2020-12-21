@@ -34,3 +34,10 @@ abbreviate qy qinyu
 abbreviate #i #include
 abbreviate #d #define
 abbreviate SOB Signed-off-by:
+"[^,], any character but ','; '.', any character
+"'*', repeat 0 or more times
+""\(...\), \(...\)" refered as \1, \2...
+"',' between \1 & \2 manually as a separetor since the old one is removed
+" change 'last, first' to 'first, last'
+abbreviate last,first %s/\([^,]*\),\(.*$\)/\2,\1/
+
