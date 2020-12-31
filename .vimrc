@@ -3,6 +3,7 @@ syntax on
 
 set noexpandtab
 set smarttab
+"a tab width
 set tabstop=8
 set softtabstop=8
 
@@ -41,3 +42,7 @@ abbreviate SOB Signed-off-by:
 " change 'last, first' to 'first, last'
 abbreviate last,first %s/\([^,]*\),\(.*$\)/\2,\1/
 
+"scroll
+"when scrolling, make sure there are at least n lines below or above the
+"cursor
+set scrolloff=3
