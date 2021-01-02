@@ -1,12 +1,19 @@
 " colors on
 syntax on
 
+"expand tabs to white spaces in following inserts
+"use :set expandtab & :%retab to convert preceding tabs to white spaces
 set noexpandtab
-set smarttab
-"a tab width
-set tabstop=8
-set softtabstop=8
 
+"default to 8, don't ever change this
+set tabstop=8
+
+"it is set to other than 8 in some non-programing scenarios, we don't need this
+"set softtabstop=8
+set softtabstop=0
+
+"similar to softtabstop, we don't need this
+"set nosmarttab
 "indent size
 set shiftwidth=8
 
