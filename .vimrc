@@ -47,9 +47,12 @@ abbreviate SOB Signed-off-by:
 ""\(...\), \(...\)" refered as \1, \2...
 "',' between \1 & \2 manually as a separetor since the old one is removed
 " change 'last, first' to 'first, last'
-abbreviate last,first %s/\([^,]*\),\(.*$\)/\2,\1/
+abbreviate switch %s/\([^,]*\),\(.*$\)/\2,\1/
 
 "scroll
 "when scrolling, make sure there are at least n lines below or above the
 "cursor
 set scrolloff=3
+
+"format options
+set formatoptions=tcqro
