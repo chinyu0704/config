@@ -56,3 +56,10 @@ set scrolloff=3
 
 "format options
 set formatoptions=tcqro
+
+
+"programming
+
+"when typing any bracket, vim cause the curse to jump to the matching bracket
+"briefly
+set showmatch
