@@ -63,3 +63,6 @@ set formatoptions=tcqro
 "when typing any bracket, vim cause the curse to jump to the matching bracket
 "briefly
 set showmatch
+
+"'set paste' toggle
+set pastetoggle=<F12>
