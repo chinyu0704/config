@@ -81,3 +81,7 @@ set wildignore=*.o
 
 "display menu when press <tab>
 set wildmenu
+
+"incremetal search & highlight search
+set hls
+set incsearch
