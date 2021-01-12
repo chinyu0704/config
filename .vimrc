@@ -75,3 +75,9 @@ set showcmd
 
 "beep when there is an err
 set errorbells
+
+"wildcard ignore
+set wildignore=*.o
+
+"display menu when press <tab>
+set wildmenu
