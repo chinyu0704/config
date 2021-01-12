@@ -66,3 +66,12 @@ set showmatch
 
 "'set paste' toggle
 set pastetoggle=<F12>
+
+"add another status line at bottom
+set cmdheight=2
+
+"display partial cmd while typing
+set showcmd
+
+"beep when there is an err
+set errorbells
