@@ -85,3 +85,6 @@ set wildmenu
 "incremetal search & highlight search
 set hls
 set incsearch
+
+"display line nr as default
+set number
