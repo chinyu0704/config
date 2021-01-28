@@ -88,3 +88,6 @@ set incsearch
 
 "display line nr as default
 set number
+
+"maps
+map <silent> <F10> :TlistToggle<cr>
