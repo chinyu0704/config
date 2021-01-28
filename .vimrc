@@ -91,3 +91,6 @@ set number
 
 "maps
 map <silent> <F10> :TlistToggle<cr>
+
+"source config files
+source ~/.vim/plugin/cscope_config.vim

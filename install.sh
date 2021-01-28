@@ -1,5 +1,10 @@
 #!/bin/bash
 
-mkdir -p ~/.vim
-cp colors ~/.vim -r 
+if [ ! -e ~/.vim ];then
+	mkdir -p ~/.vim
+fi
+
+cp colors ~/.vim/ -r 
+cp plugin ~/.vim/ -r
+
 cp .vimrc ~/ 
