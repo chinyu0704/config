@@ -33,8 +33,10 @@ if has("cscope")
 	nmap <C-@>f :vert scs find f <C-R>=expand("<cfile>")<CR><CR>
 	nmap <C-@>i :vert scs find i <C-R>=expand("<cfile>")<CR><CR>
 	nmap <C-@>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
+
 	nmap <F6> :cnext <CR>
 	nmap <F5> :cprev <CR>
+	cmap cs :cs f g
 
         " Open a quickfix window for the following queries.
         "set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
