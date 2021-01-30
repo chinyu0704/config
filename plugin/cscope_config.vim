@@ -13,7 +13,7 @@ if has("cscope")
         endwhile
 
         set csto=0  " Use cscope first, then ctags
-        set cst     " Only search cscope
+	"set cst     " Only search cscope
         set csverb  " Make cs verbose
 
 	nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
@@ -34,9 +34,10 @@ if has("cscope")
 	nnoremap <C-@>i :vert scs find i <C-R>=expand("<cfile>")<CR><CR>
 	nnoremap <C-@>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
 
+	nmap <F6> :cs f s 
+	nmap <F5> :cs f g 
 	nmap <F6> :cnext <CR>
-	nmap <F5> :cprev <CR>
-	cmap cs cs f g
+	nmap <F7> :cprev <CR>
 
         " Open a quickfix window for the following queries.
         "set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
