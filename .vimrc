@@ -71,7 +71,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 set background=dark
-"colorscheme hybrid
+colorscheme hybrid
 
 set t_Co=256
 
@@ -129,6 +129,9 @@ set number
 
 "maps
 map <silent> <F10> :TlistToggle<cr>
+
+"source config files
+"source ~/.vim/plugin/cscope_config.vim
 
 
 "ligitline color scheme config
