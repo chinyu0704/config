@@ -128,7 +128,13 @@ set incsearch
 set number
 
 "maps
-map <silent> <F10> :TlistToggle<cr>
+"ctags list toggle
+noremap <silent> <F10> :TlistToggle<cr>
+"nerdtree toggle
+noremap <silent> <F9> :NERDTreeToggle<cr>
+
+"source config files
+"source ~/.vim/plugin/cscope_config.vim
 
 
 "ligitline color scheme config
@@ -137,3 +143,7 @@ map <silent> <F10> :TlistToggle<cr>
 
 "vim airline theme
 let g:airline_theme='angr'
+
+"autocmd add here:
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
