@@ -150,3 +150,16 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 
 "fresh faster for gitgutter
 set updatetime=100
+
+"syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_c_checkers = ['clang_check', 'checkpatch', 'gcc']
+"If you're using YCM's identifier completer in C-family languages but cannot use the clang-based semantic completer for those languages and want to use the GCC Syntastic checkers, unset this option.
+let g:ycm_show_diagnostics_ui = 0
