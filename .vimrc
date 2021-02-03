@@ -148,7 +148,7 @@ let g:airline_theme='angr'
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-"fresh faster for gitgutter
+"gitgutter settings
 set updatetime=100
 
 "syntastic settings
@@ -163,3 +163,7 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_c_checkers = ['clang_check', 'checkpatch', 'gcc']
 "If you're using YCM's identifier completer in C-family languages but cannot use the clang-based semantic completer for those languages and want to use the GCC Syntastic checkers, unset this option.
 let g:ycm_show_diagnostics_ui = 0
+"when multiple checkers find error, display all of them together
+let g:syntastic_aggregate_errors = 1
+"don't display error in included files
+let g:syntastic_c_remove_include_errors = 1
