@@ -167,3 +167,7 @@ let g:ycm_show_diagnostics_ui = 0
 let g:syntastic_aggregate_errors = 1
 "don't display error in included files
 let g:syntastic_c_remove_include_errors = 1
+"You can configure whether GitGutter preserves or clobbers other signs using
+"g:gitgutter_sign_allow_clobber. Set to 1 to clobber other signs (default on
+"Vim >= 8.1.0614 and NeoVim >= 0.4.0) or 0 to preserve them.
+let g:gitgutter_sign_allow_clobber = 0
