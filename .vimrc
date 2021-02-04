@@ -160,7 +160,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:syntastic_c_checkers = ['clang_check', 'checkpatch', 'gcc']
+let g:syntastic_c_checkers = ['checkpatch', 'gcc']
 "If you're using YCM's identifier completer in C-family languages but cannot use the clang-based semantic completer for those languages and want to use the GCC Syntastic checkers, unset this option.
 let g:ycm_show_diagnostics_ui = 0
 "when multiple checkers find error, display all of them together
