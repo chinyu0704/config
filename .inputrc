@@ -1,0 +1,7 @@
+#bind your up and down cursor keys to incrementally search your history. (The second two ensure that left and right continue to work correctly).
+#For instance, to find a previous SSH command from a few days ago, simply type “ss” and press up a few times. This will allow you to browse through
+#all your previous ssh… commands until you find the right one - you never need to use more than 4 or 5 keystrokes to retrieve any previous command.
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
