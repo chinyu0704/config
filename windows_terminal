@@ -1,0 +1,2 @@
+#将ps的默认readline模式设置为emacs
+Set-PSReadLineOption -EditMode Emacs
