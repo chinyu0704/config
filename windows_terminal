@@ -2,4 +2,4 @@
 Set-PSReadLineOption -EditMode Emacs
 
 #将ps 公钥添加到目标服务器
-type c:\users\q30004236\.ssh\id_rsa.pub | ssh root@9.82.236.90 'cat >> .ssh/authorized_keys'
+type c:\users\$USER\.ssh\id_rsa.pub | ssh root@$IP 'cat >> .ssh/authorized_keys'
