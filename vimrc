@@ -20,6 +20,8 @@ Plugin 'chinyu0704/vim-cscope'
 Plugin 'chinyu0704/vim-hybrid'
 Plugin 'yegappan/taglist'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-capslock'
+Plugin 'romainl/vim-cool'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
