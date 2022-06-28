@@ -10,7 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'preservim/nerdtree'
 "Plugin 'zxqfl/tabnine-vim'
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
 Plugin 'junegunn/fzf.vim'
 "Plugin 'itchyny/lightline.vim'
 Plugin 'vim-airline/vim-airline'
@@ -147,7 +147,7 @@ noremap <silent> <F9> :NERDTreeToggle<cr>
 "set laststatus=2
 
 "vim airline theme
-let g:airline_theme='angr'
+let g:airline_theme='distinguished'
 
 "autocmd add here:
 " Exit Vim if NERDTree is the only window left.
@@ -211,3 +211,8 @@ else
     set viminfo+=!
 endif
 
+
+"airline bottom bar customization
+let g:airline_section_b = ''
+let g:airline_section_error = ''
+let g:airline_section_warning = ''
