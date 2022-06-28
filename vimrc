@@ -9,7 +9,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'preservim/nerdtree'
-Plugin 'zxqfl/tabnine-vim'
+"Plugin 'zxqfl/tabnine-vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'junegunn/fzf.vim'
 "Plugin 'itchyny/lightline.vim'
@@ -22,6 +22,8 @@ Plugin 'yegappan/taglist'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-capslock'
 Plugin 'romainl/vim-cool'
+Plugin 'Yilin-Yang/vim-markbar'
+Plugin 'hari-rangarajan/CCTree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -174,3 +176,38 @@ let g:syntastic_c_remove_include_errors = 1
 "g:gitgutter_sign_allow_clobber. Set to 1 to clobber other signs (default on
 "Vim >= 8.1.0614 and NeoVim >= 0.4.0) or 0 to preserve them.
 let g:gitgutter_sign_allow_clobber = 0
+
+set encoding=utf-8
+
+"enable airline tab line
+let g:airline#extensions#tabline#enabled = 1
+
+"ariline tab list switch
+ let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>0 <Plug>AirlineSelectTab0
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>= <Plug>AirlineSelectNextTab
+
+"markbar config
+nmap <Leader>m <Plug>ToggleMarkbar
+
+" the following are unneeded if ToggleMarkbar is mapped
+nmap <Leader>mo <Plug>OpenMarkbar
+nmap <Leader>mc <Plug>CloseMarkbar
+
+" this is required for mark names to persist between editor sessions
+if has('nvim')
+    set shada+=!
+else
+    set viminfo+=!
+endif
+
