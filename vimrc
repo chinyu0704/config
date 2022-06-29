@@ -24,6 +24,11 @@ Plugin 'tpope/vim-capslock'
 Plugin 'romainl/vim-cool'
 Plugin 'Yilin-Yang/vim-markbar'
 Plugin 'hari-rangarajan/CCTree'
+Plugin 'skywind3000/vim-preview'
+Plugin 'ianva/vim-youdao-translater'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'inkarkat/vim-EnhancedJumps'
+Plugin 'inkarkat/vim-ingo-library'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -211,8 +216,23 @@ else
     set viminfo+=!
 endif
 
+let g:markbar_width = 70
+
 
 "airline bottom bar customization
 let g:airline_section_b = ''
 let g:airline_section_error = ''
 let g:airline_section_warning = ''
+
+"youdao translation key map
+"vnoremap <silent> <C-T> :<C-u>Ydv<CR>
+"nnoremap <silent> <C-T> :<C-u>Ydc<CR>
+"noremap <leader>yd :<C-u>Yde<CR>
+
+"vim-preview key binding
+noremap <c-\>p :PreviewTag<cr>
+
+noremap <s-u> :PreviewScroll -1<cr>
+noremap <s-d> :PreviewScroll +1<cr>
+inoremap <m-u> <c-\><c-o>:PreviewScroll -1<cr>
+inoremap <m-d> <c-\><c-o>:PreviewScroll +1<cr>
