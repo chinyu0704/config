@@ -27,7 +27,7 @@ Plugin 'hari-rangarajan/CCTree'
 Plugin 'skywind3000/vim-preview'
 Plugin 'ianva/vim-youdao-translater'
 Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'inkarkat/vim-EnhancedJumps'
+"Plugin 'inkarkat/vim-EnhancedJumps'
 Plugin 'inkarkat/vim-ingo-library'
 
 " All of your Plugins must be added before the following line
