@@ -1,4 +1,5 @@
 #将ps的默认readline模式设置为emacs
+#在powershell下执行 `echo 'Set-PSReadLineOption -EditMode Emacs' >> $profile` 修改默认配置（如果没有$profile文件，可以手动创建）
 Set-PSReadLineOption -EditMode Emacs
 
 #将ps 公钥添加到目标服务器
