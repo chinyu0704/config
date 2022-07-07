@@ -29,6 +29,8 @@ Plugin 'ianva/vim-youdao-translater'
 Plugin 'ludovicchabant/vim-gutentags'
 "Plugin 'inkarkat/vim-EnhancedJumps'
 Plugin 'inkarkat/vim-ingo-library'
+"Plugin 'brookhong/cscope.vim'
+Plugin 'erig0/cscope_dynamic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -231,8 +233,38 @@ let g:airline_section_warning = ''
 
 "vim-preview key binding
 noremap <c-\>p :PreviewTag<cr>
+noremap <c-\><c-\>p :PreviewGoto<cr>
 
 noremap <s-u> :PreviewScroll -1<cr>
 noremap <s-d> :PreviewScroll +1<cr>
 inoremap <m-u> <c-\><c-o>:PreviewScroll -1<cr>
 inoremap <m-d> <c-\><c-o>:PreviewScroll +1<cr>
+
+
+"guentags config
+" recursive search upwards until encounter one of following dirs
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.project']
+
+" cached ctags file suffix
+let g:gutentags_ctags_tagfile = '.tags'
+"
+" dir to store .ctags
+let s:vim_tags = expand('~/.ctags')
+let g:gutentags_cache_dir = s:vim_tags
+" auto
+if !isdirectory(s:vim_tags)
+    silent! call mkdir(s:vim_tags, 'p')
+endif
+
+" ctags parameters
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+"-------------------
+
+"config for brookhong/cscope.vim
+let g:cscope_interested_files = '\.c$\|\.cpp$\|\.h$\|\.x$\|\.s$\|\.S$'
+let g:cscope_split_threshold = 9999
+
+nmap <F8> <Plug>CscopeDBInit
