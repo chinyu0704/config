@@ -267,4 +267,5 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 let g:cscope_interested_files = '\.c$\|\.cpp$\|\.h$\|\.x$\|\.s$\|\.S$'
 let g:cscope_split_threshold = 9999
 
-nmap <F8> <Plug>CscopeDBInit
+" config for cscope dynamic
+nmap <C-\><C-\>i <Plug>CscopeDBInit
