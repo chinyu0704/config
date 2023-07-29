@@ -17,7 +17,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'chinyu0704/vim-cscope'
-Plugin 'chinyu0704/vim-hybrid'
+"Plugin 'chinyu0704/vim-hybrid'
 Plugin 'yegappan/taglist'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-capslock'
@@ -83,7 +83,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 set background=dark
-colorscheme hybrid
+"colorscheme hybrid
 
 set t_Co=256
 
@@ -156,6 +156,7 @@ noremap <silent> <F9> :NERDTreeToggle<cr>
 
 "vim airline theme
 let g:airline_theme='distinguished'
+let g:airline_solarized_bg='dark'
 
 "autocmd add here:
 " Exit Vim if NERDTree is the only window left.
