@@ -1,6 +1,8 @@
 #将ps的默认readline模式设置为emacs
 #在powershell下执行 `echo 'Set-PSReadLineOption -EditMode Emacs' >> $profile` 修改默认配置（如果没有$profile文件，可以手动创建）
 Set-PSReadLineOption -EditMode Emacs
+#写到配置文件让它永久生效, 参考 https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.3
+echo "Set-PSReadLineOption -EditMode Emacs" > $PSHOME\Microsoft.PowerShell_profile.ps1
 
 #将ps 公钥添加到目标服务器
 type c:\users\$USER\.ssh\id_rsa.pub | ssh root@$IP 'cat >> .ssh/authorized_keys'
