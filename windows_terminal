@@ -6,5 +6,3 @@ echo "Set-PSReadLineOption -EditMode Emacs" > $PSHOME\Microsoft.PowerShell_profi
 
 #将ps 公钥添加到目标服务器
 type c:\users\$USER\.ssh\id_rsa.pub | ssh root@$IP 'cat >> .ssh/authorized_keys'
-
-eyJ2Ijoid2lufDEuNi43IiwiaSI6IkFNdXQ1c1Y4T2EiLCJsIjoiUEMtSFoyMDI5NjAyOCB8IHFpbnl1MTYgfCBXaW5kb3dzIn0=
