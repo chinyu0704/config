@@ -10,8 +10,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'preservim/nerdtree'
 "Plugin 'zxqfl/tabnine-vim'
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
+"either lightline or vim-airline
 "Plugin 'itchyny/lightline.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -19,18 +21,25 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'chinyu0704/vim-cscope'
 Plugin 'chinyu0704/vim-hybrid'
 Plugin 'yegappan/taglist'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-capslock'
 Plugin 'romainl/vim-cool'
-Plugin 'Yilin-Yang/vim-markbar'
+"Plugin 'Yilin-Yang/vim-markbar'
 Plugin 'hari-rangarajan/CCTree'
 Plugin 'skywind3000/vim-preview'
-Plugin 'ianva/vim-youdao-translater'
-Plugin 'ludovicchabant/vim-gutentags'
+"Plugin 'ianva/vim-youdao-translater'
+"Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'inkarkat/vim-EnhancedJumps'
 Plugin 'inkarkat/vim-ingo-library'
 "Plugin 'brookhong/cscope.vim'
 Plugin 'erig0/cscope_dynamic'
+Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'sonph/onehalf'
+Plugin 'tpope/vim-surround'
+
+"navigation
+Plugin 'easymotion/vim-easymotion'
+Plugin 'haya14busa/vim-easyoperator-line'
+Plugin 'haya14busa/vim-easyoperator-phrase'
 
 "make the search blink
 Plugin 'ivyl/vim-bling'
@@ -42,7 +51,14 @@ Plugin 'heavenshell/vim-pydocstring'
 Plugin 'vim-test/vim-test'
 Plugin 'tell-k/vim-autopep8'
 "Plugin 'davidhalter/jedi-vim'
-Plugin 'dense-analysis/ale'
+
+Plugin 'preservim/tagbar'
+Plugin 'davidhalter/jedi-vim'
+
+" colors
+Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'ericbn/vim-solarized'
+Plugin 'kaicataldo/material.vim', { 'branch': 'main' }
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -95,7 +111,15 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 set background=dark
-"colorscheme hybrid
+"colorscheme onehalfdark
+let g:solarized_termcolors=256
+let g:material_theme_style='ocean'
+colorscheme material
+"let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
+
+if (has('termguicolors'))
+  set termguicolors
+endif
 
 set t_Co=256
 
@@ -154,21 +178,21 @@ set number
 
 "maps
 "ctags list toggle
-noremap <silent> <F10> :TlistToggle<cr>
+noremap <silent> <F7> :TlistToggle<cr>
 "nerdtree toggle
-noremap <silent> <F9> :NERDTreeToggle<cr>
+noremap <silent> <F8> :NERDTreeToggle<cr>
 
 "source config files
 "source ~/.vim/plugin/cscope_config.vim
 
 
 "ligitline color scheme config
-"let g:lightline = {'colorscheme': 'jellybeans',}
+"let g:lightline = {'colorscheme': 'wombat',}
 "set laststatus=2
 
 "vim airline theme
-let g:airline_theme='distinguished'
-let g:airline_solarized_bg='dark'
+let g:airline_theme='onehalfdark'
+"let g:airline_solarized_bg='dark'
 
 "autocmd add here:
 " Exit Vim if NERDTree is the only window left.
@@ -178,9 +202,9 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 set updatetime=100
 
 "syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -202,9 +226,11 @@ set encoding=utf-8
 
 "enable airline tab line
 let g:airline#extensions#tabline#enabled = 1
+" airline buffer list top format
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 "ariline tab list switch
- let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
@@ -229,6 +255,7 @@ nmap <Leader>mc <Plug>CloseMarkbar
 if has('nvim')
     set shada+=!
 else
+"<'> this save jumplist to viminfo and jumplist can be reused when vim restart
     set viminfo+=!
 endif
 
@@ -283,3 +310,62 @@ let g:cscope_split_threshold = 9999
 
 " config for cscope dynamic
 nmap <C-\><C-\>i <Plug>CscopeDBInit
+
+nmap <F8> :TagbarToggle<CR>
+
+
+"function! HighlightEnabledConfigs()
+"    let config_path = '.config'
+"    let configs = []
+"    if filereadable(config_path)
+"        for line in readfile(config_path)
+"            if line =~ '^CONFIG_.*=y'
+"                let config = matchstr(line, '^CONFIG_\w*')
+"                call add(configs, config)
+"            endif
+"        endfor
+"    endif
+"
+"    for config in configs
+"        try
+"            silent! execute 'syntax match ConfigEnabled /\<' . config . '\>/' 'containedin=ALLBUT,contains=TOP'
+"            execute 'highlight ConfigEnabled ctermfg=Green guifg=Green'
+"        catch
+"            echom 'Failed to create syntax match for: ' . config
+"        endtry
+"    endfor
+"endfunction
+"
+"autocmd BufReadPost *.c,*.h call HighlightEnabledConfigs()
+"
+function! HighlightEnabledConfigs()
+    let config_path = '.config'
+    let configs_y = []
+    let configs_m = []
+    if filereadable(config_path)
+        for line in readfile(config_path)
+            if line =~ '^CONFIG_.*=y'
+                let config = matchstr(line, '^CONFIG_\w*')
+                call add(configs_y, config)
+            elseif line =~ '^CONFIG_.*=m'
+                let config = matchstr(line, '^CONFIG_\w*')
+                call add(configs_m, config)
+            endif
+        endfor
+    endif
+
+    " Apply different syntax highlighting for configs set to 'y'
+    for config in configs_y
+        silent! execute 'syntax match ConfigEnabledY /\<' . config . '\>/' 'containedin=ALLBUT,contains=TOP'
+        execute 'highlight ConfigEnabledY ctermfg=Green guifg=Green'
+    endfor
+
+    " Apply different syntax highlighting for configs set to 'm'
+    for config in configs_m
+        silent! execute 'syntax match ConfigEnabledM /\<' . config . '\>/' 'containedin=ALLBUT,contains=TOP'
+        execute 'highlight ConfigEnabledM ctermfg=Yellow guifg=Yellow'
+    endfor
+endfunction
+
+autocmd BufReadPost *.c,*.h call HighlightEnabledConfigs()
+
